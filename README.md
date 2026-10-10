@@ -11,9 +11,13 @@
 | Integrante | Carnet | Concepto Técnico a Defender | Coevaluación (%) |
 
 | **Ángel André Mendoza Majano** | MM-69749-25 | Herencia y Superclases | 100% |
+
 |**Josseline Ivonne Cortez López** | CL-67124-24 | Clases Abstractas | 100% |
+
 | **Marjori Stephanie Cruz Ponce**  | CP- 66338-24 | Polimorfismo (Sobrecarga / Sobrescritura) | 100% |
+
 | **Cristhofer Alexis Guevara Rosales**  | GR-69915-25 | Interfaces | 100% |
+
 | **Kenny Diane Martínez Vega** | MV-39703-16| Integración (Main), Flujo y Gestión Kanban | 100% |
 
 **Enlace al tablero Kanban de gestión:** https://github.com/users/kennym797/projects/1
