@@ -6,13 +6,13 @@
 
 ---
 
-## 1. Portada, asignación de roles y coevaluación
+## 1. Integrantes, roles y coevaluación
 
 | Integrante | Carnet | Concepto Técnico a Defender | Coevaluación (%) |
 
 | **Ángel André Mendoza Majano** | MM-69749-25 | Herencia y Superclases | 100% |
 
-|**Josseline Ivonne Cortez López** | CL-67124-24 | Clases Abstractas | 100% |
+| **Josseline Ivonne Cortez López** | CL-67124-24 | Clases Abstractas | 100% |
 
 | **Marjori Stephanie Cruz Ponce**  | CP- 66338-24 | Polimorfismo (Sobrecarga / Sobrescritura) | 100% |
 
