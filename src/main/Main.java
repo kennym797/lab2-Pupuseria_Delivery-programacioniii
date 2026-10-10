@@ -1,8 +1,7 @@
 package main;
 
-import modelo.Producto;
-import modelo.Pupusa;
-import modelo.Bebida;
+import interfaces.Imprimible;
+import modelo.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,36 +9,25 @@ public class Main {
         System.out.println("   SISTEMA DE GESTIÓN DE PEDIDOS - PUPUSERÍA      ");
         System.out.println("==================================================\n");
 
-        // 1. Instanciación con ID (Herencia y Clase Abstracta Producto)
-        Pupusa pupusa1 = new Pupusa(1, "Queso con Loroco", "Arroz", 1.25);
-        Pupusa pupusa2 = new Pupusa(2, "Chicharrón", "Maíz", 1.00);
-        Pupusa pupusa3 = new Pupusa(3, "Revuelta", "Maíz", 1.00);
+        // 1. Instanciación con ID (Herencia e Integración de Clase Abstracta Producto)
+        Producto pupusa1 = new Pupusa(1, "Queso con Loroco", "Arroz", 1.25);
+        Producto pupusa2 = new Pupusa(2, "Chicharrón", "Maíz", 1.00);
+        Producto bebida1 = new Bebida(3, "Horchata", 1.50, "Grande", true);
+        Producto bebida2 = new Bebida(4, "Café de Palo", 1.00, "Mediano", false);
 
-        Bebida bebida1 = new Bebida(4, "Horchata", 1.50, "Grande", true);
-        Bebida bebida2 = new Bebida(5, "Café de Palo", 1.00, "Mediano", false);
+        // 2. Creación del Pedido y Polimorfismo por Sobrecarga de métodos
+        System.out.println("--- REGISTRANDO PRODUCTOS AL PEDIDO ---");
+        Pedido miPedido = new Pedido();
+        miPedido.agregarProducto(pupusa1, 3); // Sobrecarga con cantidad
+        miPedido.agregarProducto(pupusa2, 2); // Sobrecarga con cantidad
+        miPedido.agregarProducto(bebida1);    // Sobrecarga unidad individual
+        miPedido.agregarProducto(bebida2);    // Sobrecarga unidad individual
 
-        // 2. Muestra del Menú disponible
-        System.out.println("--- MENÚ DE PUPUSAS ---");
-        System.out.println(pupusa1);
-        System.out.println(pupusa2);
-        System.out.println(pupusa3);
-
-        System.out.println("\n--- MENÚ DE BEBIDAS ---");
-        System.out.println(bebida1);
-        System.out.println(bebida2);
-
-        // 3. Polimorfismo con arreglo de la clase abstracta Producto
-        System.out.println("\n--- DEMOSTRACIÓN DE POLIMORFISMO Y CÁLCULO DE PRECIOS ---");
-        Producto[] ordenDemo = { pupusa1, pupusa2, bebida1, bebida2 };
-        
-        double totalPrueba = 0.0;
-        for (Producto p : ordenDemo) {
-            System.out.println("ID " + p.getId() + " | Producto: " + p.getNombre() + " | Precio: $" + String.format("%.2f", p.calcularPrecio()));
-            totalPrueba += p.calcularPrecio();
+        // 3. Imprimir el Ticket usando la Interfaz Imprimible
+        if (miPedido instanceof Imprimible) {
+            System.out.println(miPedido.generarTicket());
         }
 
-        System.out.println("\n==================================================");
-        System.out.println(" Total estimado de la orden demo: $" + String.format("%.2f", totalPrueba));
-        System.out.println("==================================================");
+        System.out.println("¡Integración finalizada exitosamente!");
     }
 }
