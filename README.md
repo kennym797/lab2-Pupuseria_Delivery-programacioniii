@@ -72,6 +72,6 @@ lab2-[nombreequipo]-programacioniii/
 ---
 
 ## 5. Nota sobre el uso de Herramientas de IA
-- **Herramientas utilizadas:** ChatGPT / Gemini, Trello.
+- **Herramientas utilizadas:** ChatGPT / Gemini.
 - **Propósito:** Apoyo en la estructuración de plantillas Markdown para la documentación y generación del esqueleto base de pruebas en `Main.java`.
 - **Validación:** El código fue revisado, ajustado a la arquitectura del dominio del proyecto y verificado mediante compilación local previa al Demo Day.
