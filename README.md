@@ -1,6 +1,6 @@
 # Laboratorio II: Sistema de gestión de pupusería
 **Asignatura:** Programación III  
-**Docente:** Oscar Armando Contreras Álvarez  
+**Docente:** Óscar Armando Contreras Álvarez  
 **Grupo / Sección:** LG-016  
 **Repositorio:** `lab2-Pupuseria_Delivery-programacioniii`  
 
