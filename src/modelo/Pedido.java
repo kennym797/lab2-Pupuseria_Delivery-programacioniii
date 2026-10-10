@@ -1,9 +1,10 @@
 package modelo;
 
+import interfaces.Imprimible;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pedido {
+public class Pedido implements Imprimible {
     private List<Producto> listaProductos;
 
     public Pedido() {
@@ -35,5 +36,21 @@ public class Pedido {
 
     public List<Producto> getListaProductos() {
         return listaProductos;
+    }
+
+    // Implementación del método heredado de la interfaz Imprimible
+    @Override
+    public String generarTicket() {
+        StringBuilder ticket = new StringBuilder();
+        ticket.append("\n==============================================\n");
+        ticket.append("         TICKET DE COMPRA - PUPUSERÍA         \n");
+        ticket.append("==============================================\n");
+        for (Producto p : listaProductos) {
+            ticket.append(String.format("- %-30s $%.2f\n", p.getNombre(), p.calcularPrecio()));
+        }
+        ticket.append("----------------------------------------------\n");
+        ticket.append(String.format("TOTAL A PAGAR:                  $%.2f\n", calcularTotalPedido()));
+        ticket.append("==============================================\n");
+        return ticket.toString();
     }
 }
