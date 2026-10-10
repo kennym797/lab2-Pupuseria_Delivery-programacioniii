@@ -16,6 +16,7 @@
 | Cristhofer Alexis Guevara Rosales  | GR-69915-25 | Interfaces | 100% |
 | Kenny Diane Martinez Vega| MV-39703-16| Integración (Main), Flujo y Gestión Kanban | 100% |
 
+**Enlace al Tablero Kanban de Gestión:** https://github.com/users/kennym797/projects/1
 ---
 
 ## 2. Descripción y Evolución del Proyecto
