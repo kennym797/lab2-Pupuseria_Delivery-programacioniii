@@ -12,7 +12,7 @@
 
 | Angel André Mendoza Majano | MM-69749-25 | Herencia y Superclases | 100% |
 |Josseline Ivonne Cortez Lopez | CL-67124-24 | Clases Abstractas | 100% |
-| Marjori Stephanie Cruz Ponce  | CL-67124-24 | Polimorfismo (Sobrecarga / Sobrescritura) | 100% |
+| Marjori Stephanie Cruz Ponce  | CP- 66338-24 | Polimorfismo (Sobrecarga / Sobrescritura) | 100% |
 | Cristhofer Alexis Guevara Rosales  | GR-69915-25 | Interfaces | 100% |
 | Kenny Diane Martinez Vega| MV-39703-16| Integración (Main), Flujo y Gestión Kanban | 100% |
 
