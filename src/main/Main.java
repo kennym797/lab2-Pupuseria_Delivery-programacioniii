@@ -28,6 +28,23 @@ public class Main {
             System.out.println(miPedido.generarTicket());
         }
 
+        // 4. Procesamiento del pedido utilizando hilos
+        System.out.println("\n--- PROCESAMIENTO CON HILOS ---");
+
+        ProcesadorPedido procesador = new ProcesadorPedido(miPedido);
+
+        Thread hiloPedido = new Thread(procesador, "Pedido-1");
+
+        hiloPedido.start();
+
+        try {
+            hiloPedido.join();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.out.println("El procesamiento fue interrumpido.");
+        }
+
+
         System.out.println("¡Integración finalizada exitosamente!");
     }
 }
