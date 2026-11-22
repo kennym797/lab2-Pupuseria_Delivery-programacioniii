@@ -108,8 +108,6 @@ Descripción de los paquetes:
 
 -GitHub: Repositorio y colaboración del equipo
 
--GitHub Projects: Gestión de tareas mediante Kanban
-
 -IntelliJ IDEA: Entorno de desarrollo
 
 ## 5. Instrucciones de compilación y ejecución
