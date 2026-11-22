@@ -96,7 +96,7 @@ Descripción de los paquetes:
 
 **vista:** Contiene la interfaz gráfica desarrollada con Java Swing.
 
-##4. Tecnologías utilizadas
+## 4. Tecnologías utilizadas
 
 -Java: Lenguaje principal de desarrollo
 
