@@ -1,33 +1,80 @@
+
 package main;
 
 import interfaces.Imprimible;
 import modelo.*;
+import excepciones.*;
 
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("==================================================");
-        System.out.println("   SISTEMA DE GESTIÓN DE PEDIDOS - PUPUSERÍA      ");
-        System.out.println("==================================================\n");
 
-        // 1. Instanciación con ID (Herencia e Integración de Clase Abstracta Producto)
-        Producto pupusa1 = new Pupusa(1, "Queso con Loroco", "Arroz", 1.25);
-        Producto pupusa2 = new Pupusa(2, "Chicharrón", "Maíz", 1.00);
-        Producto bebida1 = new Bebida(3, "Horchata", 1.50, "Grande", true);
-        Producto bebida2 = new Bebida(4, "Café de Palo", 1.00, "Mediano", false);
+    // Recurso interno para probar try-with-resources
+    static class RecursoPedido implements AutoCloseable {
 
-        // 2. Creación del Pedido y Polimorfismo por Sobrecarga de métodos
-        System.out.println("--- REGISTRANDO PRODUCTOS AL PEDIDO ---");
-        Pedido miPedido = new Pedido();
-        miPedido.agregarProducto(pupusa1, 3); // Sobrecarga con cantidad
-        miPedido.agregarProducto(pupusa2, 2); // Sobrecarga con cantidad
-        miPedido.agregarProducto(bebida1);    // Sobrecarga unidad individual
-        miPedido.agregarProducto(bebida2);    // Sobrecarga unidad individual
-
-        // 3. Imprimir el Ticket usando la Interfaz Imprimible
-        if (miPedido instanceof Imprimible) {
-            System.out.println(miPedido.generarTicket());
+        public RecursoPedido() {
+            System.out.println("Iniciando procesamiento del pedido...");
         }
 
-        System.out.println("¡Integración finalizada exitosamente!");
+        public void procesar() {
+            System.out.println("Procesando pedido...");
+        }
+
+        @Override
+        public void close() {
+            System.out.println("Cerrando recurso del pedido...");
+        }
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println("========================================");
+        System.out.println("       SISTEMA DE GESTIÓN DE PUPUSERÍA");
+        System.out.println("========================================");
+
+        // 1. Crear productos utilizando herencia y polimorfismo
+        try {
+
+            Producto pupusa1 = new Pupusa(
+                    1, "Queso con Loroco", "Arroz", 1.25
+            );
+
+            Producto bebida1 = new Bebida(
+                    2, "Horchata", 1.50, "Grande", true
+            );
+
+            // 2. Crear pedido
+            Pedido miPedido = new Pedido();
+
+            System.out.println("\n--- REGISTRANDO PRODUCTOS ---");
+
+            miPedido.agregarProducto(pupusa1, 2);
+            miPedido.agregarProducto(bebida1);
+
+            // 3. Imprimir ticket utilizando la interfaz
+            System.out.println("\n--- TICKET DE COMPRA ---");
+
+            if (miPedido instanceof Imprimible) {
+                System.out.println(miPedido.generarTicket());
+            }
+
+        } catch (ProductoInvalidoException |
+                 PedidoInvalidoException e) {
+
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        // 4. Prueba de try-with-resources
+        try (RecursoPedido recurso = new RecursoPedido()) {
+
+            recurso.procesar();
+
+        } catch (Exception e) {
+
+            System.out.println("Error al procesar: "
+                    + e.getMessage());
+        }
+
+        System.out.println("\n========================================");
+        System.out.println("   INTEGRACIÓN FINALIZADA");
+        System.out.println("========================================");
     }
 }

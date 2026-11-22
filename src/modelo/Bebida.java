@@ -1,11 +1,16 @@
 package modelo;
 
+import excepciones.ProductoInvalidoException;
+
 public class Bebida extends Producto {
-    private String tamano; // Ej: "Mediano", "Grande"
+
+    private String tamano;
     private boolean esFria;
 
-    // Constructor adaptado a la superclase abstracta con id
-    public Bebida(int id, String nombre, double precioBase, String tamano, boolean esFria) {
+    public Bebida(int id, String nombre, double precioBase,
+                  String tamano, boolean esFria)
+            throws ProductoInvalidoException {
+
         super(id, nombre, precioBase);
         this.tamano = tamano;
         this.esFria = esFria;
@@ -19,7 +24,6 @@ public class Bebida extends Producto {
         return esFria;
     }
 
-    // Implementación del método abstracto heredado
     @Override
     public double calcularPrecio() {
         return precioBase;
